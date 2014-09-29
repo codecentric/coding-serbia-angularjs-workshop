@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Agile JavaScript - a codecentric AG workshop</title>
+  <title>AngularJS Workshop - Coding Serbia 2014</title>
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.media.css">
@@ -13,44 +13,20 @@
 
 <div class="container">
   <h1 class="page-header">
-    Agile JavaScript
-    <small>a codecentric AG workshop</small>
+    AngularJS Workshop<br>
+    <small>Coding Serbia Special Edition</small><br>
   </h1>
   <p class="well">
     If you are reading this, then you are probably here because one of the
     trainers has given you this URI. If not, then most of this information
-    may not be of interest to you. Should you be interested in this
-    workshop, please contact our
+    may not be of interest to you. Should you be interested in this or similar
+    workshops, please contact our
     <a href="mailto:agilejs@codecentric.de">training team</a> (workshop is
     available in German and English).
   </p>
 
   <h2>Slides</h2>
   <ul class="media-list">
-    <li class="media">
-      <a class="pull-left" href="introduction">
-        <img class="media-object" style="width: 128px" src="images/codecentric-people.png"/>
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <a href="introduction">Introduction</a>
-        </h4>
-        <p>Who we are, what we do and what the workshop is about</p>
-      </div>
-    </li>
-
-    <li class="media">
-      <a class="pull-left" href="frameworks-tools-services-slides/agile-javascript-frameworks-tools-services.pdf">
-        <img class="media-object" style="width: 128px" src="images/frameworks-tools-services.png"/>
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <a href="frameworks-tools-services-slides/agile-javascript-frameworks-tools-services.pdf">Frameworks, Tools and Services</a>
-        </h4>
-        <p>Short overview and explanation of the frameworks, tools and services, that we use during the workshop. Start here, if you want to know, how a typical tool stack for agile software development with JavaScript can look like.</p>
-      </div>
-    </li>
-
     <li class="media">
       <a class="pull-left" href="javascript-basics-slides">
         <img class="media-object" style="width: 128px" src="images/javascript-basics.png"/>
@@ -59,98 +35,100 @@
         <h4 class="media-heading">
           <a href="javascript-basics-slides">JavaScript Basics</a>
         </h4>
-        <p>Introduction to JavaScript, basic features and common pitfalls. Start here, if you are new to JavaScript or want to learn more about the language of the workshop.</p>
-      </div>
-    </li>
-
-    <li class="media">
-      <a class="pull-left" href="application-intro-slides">
-        <img class="media-object" style="width: 128px" src="images/movie-database.png"/>
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <a href="application-intro-slides">About the Movie Database</a>
-        </h4>
-        <p>Presentation of the demo-project that is used throughout the workshop.</p>
+        <p>Introduction to JavaScript, basic features and common pitfalls.
+          Start here, if you are new to JavaScript or want to learn more about
+          the language of the workshop.</p>
       </div>
     </li>
   </ul>
 
   <h2>Source Code</h2>
   <p>
-    All the project's sources are available through a GitHub repository
-    under
+    In this workshop, we will work on an AngularJS app called the movie
+    database. It is a very simple application that allows you to manage
+    information about movies. You can create, edit and delete movie
+    information.
+  </p>
+  <p>
+    All the project's sources are available in this GitHub repository:
     <a href="https://github.com/codecentric/movie-database-node">
-      codecentric/movie-database-node</a>. Workshop participants will be given
-      a fork of this repository with pull and push rights.
+      codecentric/movie-database-node</a>.
   </p>
 
   <h2>Preparation</h2>
   <ul>
     <li>
-      Please form teams of four to five persons (four persons preferred).
+      You might need a GitHub account. If you do not already have an account,
+      creating an account is easy and free of charge. You can create an account
+      at the <a href="https://github.com/">GitHub homepage</a>. (TODO: Revise
+      this: If the VM has a clone of the repo, no GH account is needed.)
     </li>
-    <li>
-      Make sure that every one of you has created a GitHub account. Creating an
-      account is easy and free of charge. You can create an account through the
-      <a href="https://github.com/">GitHub homepage</a>.
-    </li>
-    <li>
-      Once you have formed teams and every team member has created a GitHub
-      account, please inform us about your teams. Send us one message per team
-      to
-      <a href="mailto:agilejs@codecentric.de?subject=Information about team members">
-        agilejs@codecentric.de
-      </a>
-      containing the names of all the persons that are part of your team,
-      the GitHub user names of all team members and, if you are up to it, a
-      fancy team name!
-    </li>
-    <li>
-      Follow the installation instructions below when you find some spare time
-      (you should have done this before the workshop!). Every team member needs
-      a complete development environment.
+   <li>
+      Follow the installation instructions below. This will set you up with a
+      complete development environment.
     </li>
   </ul>
 
   <h2>Installation of necessary software</h2>
   <p>
-    Make sure that every team member has a PC/Mac that can be used for
-    development. Unix based operating systems work best in our experience, but
-    Windows can also be used. If you are willing to, then you can install the
-    necessary software on your own machine. Being able to run the software
-    outside of any virtual machine is superb and will result in the best
-    experience for you during the workshop. For those who are unable to install
-    the software or are not willing to, we provide an Ubuntu-based virtual
-    machine that can be run using
-    <a href="https://www.virtualbox.org/">Oracle VirtualBox</a>.
+    We provide an Ubuntu-based virtual machine that can be run using
+    <a href="https://www.virtualbox.org/">Oracle VirtualBox</a>. The virtual
+    machine plus installation files for VirtualBox for various operating systems
+    are on the memory stick that you should have received. You can of course
+    also install the necessary software directly on you machine, without using a
+    virtual machine. Since we only have four hours for the workshop the VM might
+    be the easiest option, though.
   </p>
 
-  <h3>Native installation</h3>
+  <h3>Using the Virtual Machine</h3>
   <p>
-    Providing installation instructions for all the tools is out of scope for
-    this document. Most of the necessary tools feature an excellent
-    documentation that you can refer to should you run into any issues. In case
-    of any outstanding issues, please contact us by mail through
-    <a href="mailto:agilejs@codecentric.de?subject=Setup problems">
-      agilejs@codecentric.de</a>.
+    (TODO: Memory Stick?)
+    Make sure that you have
+    <a href="https://www.virtualbox.org/">Oracle VirtualBox</a> installed.
+    VirtualBox versions 4.2.x and 4.3.x and should do fine. Once VirtualBox is
+    installed you can start VirtualBox and import the virtual machine using
+    <em>File -> Import Appliance</em>. Follow the wizard
+    till the end and start the virtual machine. You should now be good to go!
+  </p>
+  <p>
+    (TODO: Memory Stick?)
+    (TODO: Update VM and link?)
+    The virtual machine is
+    <a href="https://public.centerdevice.de/70cf98fd-58c3-4f36-8174-5b449299dee7">
+      available through CenterDevice
+    </a>
+    (hit the download button in the upper-right corner).
   </p>
 
-  <div class="alert alert-warning">
-    If you choose the native installation process, please make sure that your
-    environment is ready-to-go <strong>before</strong> the workshop!
-    Also note that we <strong>cannot support</strong> native installation
-    of these tools on Windows machines. Please use the VirtualBox machine if you
-    happen to use a Windows machine (see below).
+  <div class="alert alert-info">
+    Make sure that you install the <em>guest additions</em> to get the best
+    workshop experience!
   </div>
 
-  <p>Please make sure that the following tools are installed:</p>
+  <h3>Native installation</h3>
+
+  <div class="alert alert-warning">
+  <p>
+    Installing all required tools natively on your machine probably requires
+    a fair amount of time and <strong>is not recommended</strong> during the
+    workshop.  You can use this section as a starting point if you want to play
+    around with the workshop material later and do not want to keep the virtual
+    machine around.
+  </p>
+  <p>
+    Providing detailed installation instructions for all the tools is out of
+    scope for this document. Most of the necessary tools feature an excellent
+    documentation that you can refer to should you run into any issues.
+  </p>
+  </div>
+
   <ul>
     <li>
       <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">
         Java version 6 or later
       </a>
-       (preferably Oracle JDK or Open JDK 7)</li>
+      Required for Neo4J, preferably Oracle JDK or Open JDK 7
+    </li>
     <li>
       <a href="http://git-scm.com/">git</a> (the version control system)
     </li>
@@ -160,7 +138,7 @@
       <strong>should</strong> use
       <a href="https://github.com/creationix/nvm">NVM</a>
       (Node Version Manager) which allows you to install global modules without
-      super user privileges. To install NVM you need to have git and cURL
+      super user privileges. To install NVM you need to have git and curl
       installed.
     </li>
     <li>
@@ -175,8 +153,11 @@
       downloaded archive.
     </li>
     <li>
-      Some code editor that supports HTML, CSS and JavaScript. We
-      recommend either
+      Some code editor that offers basic support for HTML, CSS and JavaScript
+      (syntax highlighting, maybe formatting). Basically you can use any editor
+      you like and are comfortable with. If you don't have strong feelings about
+      your favorite editor or your current editor does not support HTML, CSS
+      and JavaScript very well, here are some recommendations:
       <a href="http://www.sublimetext.com/">Sublime Text</a>,
       <a href="https://atom.io/">Atom Editor</a> or
       <a href="http://www.jetbrains.com/webstorm/">WebStorm</a>.
@@ -186,28 +167,6 @@
       like Google Chrome, Chrome Canary or Chromium itself would be our choice.
     </li>
   </ul>
-
-  <h3>Using the Virtual Machine</h3>
-  <p>
-    Make sure that you have
-    <a href="https://www.virtualbox.org/">Oracle VirtualBox</a> installed.
-    With VirtualBox Version 4.2.18 you should not run
-    into any issues. Once installed you can start VirtualBox and import the
-    virtual machine using <em>File -> Import Appliance</em>. Follow the wizard
-    till the end and start the virtual machine. You should now be good to go!
-  </p>
-  <p>
-    The virtual machine is
-    <a href="https://public.centerdevice.de/70cf98fd-58c3-4f36-8174-5b449299dee7">
-      available through CenterDevice
-    </a>
-    (hit the download button in the upper-right corner).
-  </p>
-
-  <div class="alert alert-info">
-    Make sure that you install the <em>guest additions</em> to get the best
-    workshop experience!
-  </div>
 
   <h2>Workshop Material</h2>
   <p>
@@ -252,32 +211,6 @@
   <h2>Trainers</h2>
   <ul class="trainers">
     <li>
-      <img src="https://1.gravatar.com/avatar/25888dd81028c7d65ef08dc9ab8bef06?s=140"
-           alt="Michael's avatar"
-           class="avatar">
-      <span class="name">Michael Lex</span>
-      <ul class="social">
-        <li>
-          <i class="icon-twitter"></i>
-          <a href="https://twitter.com/mj_lex">
-            @mj_lex
-          </a>
-        </li>
-        <li>
-          <i class="icon-github"></i>
-          <a href="https://github.com/mlex">
-            github.com/mlex
-          </a>
-        </li>
-        <li>
-          <i class="icon-envelope"></i>
-          <a href="mailto:michael.lex@codecentric.de">
-            michael.lex@codecentric.de
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li>
       <img src="https://2.gravatar.com/avatar/1dc323b6c88b54ca55701ab5ddda7628?s=140"
            alt="Ben's avatar"
            class="avatar">
@@ -303,8 +236,33 @@
         </li>
       </ul>
     </li>
+    <li>
+      <img src="https://1.gravatar.com/avatar/623cf297a88aa998e58a684eb9afe1d9?s=140"
+           alt="Bastian's avatar"
+           class="avatar">
+      <span class="name">Bastian Krol</span>
+      <ul class="social">
+        <li>
+          <i class="icon-twitter"></i>
+          <a href="https://twitter.com/bastiankrol">
+            @bastiankrol
+          </a>
+        </li>
+        <li>
+          <i class="icon-github"></i>
+          <a href="https://github.com/basti1302">
+            github.com/basti1302
+          </a>
+        </li>
+        <li>
+          <i class="icon-envelope"></i>
+          <a href="mailto:bastian.krol@codecentric.de">
+            bastian.krol@codecentric.de
+          </a>
+        </li>
+      </ul>
+    </li>
   </ul>
-
 </div>
 
 </body>
