@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "grunt travis",
-    "postinstall": "./node_modules/.bin/bower install"
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/protractor/bin/webdriver-manager update",
+    "pretest": "./node_modules/protractor/bin/webdriver-manager start &",
+    "test": "grunt travis"
   },
   "dependencies": {
     "body-parser": "^1.9.0",
