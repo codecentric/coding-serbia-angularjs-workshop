@@ -25,8 +25,9 @@ exports = module.exports = function (movieDb) {
         logger.debug('Retrieving a list of all movies');
         var movies = [];
         movieDb.forEach(function(key, value) {
-            console.log('FOO ' + key);
-            movies.push(value);
+            if (typeof value !== 'undefined' && value !== null) {
+                movies.push(value);
+            }
         });
         logger.debug('Successfully loaded %d movies.', movies.length);
         return res.send(movies);
