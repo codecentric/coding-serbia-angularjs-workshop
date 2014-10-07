@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Agile JavaScript - Documentation</title>
+  <title>AngularJS Workshop - Documentation</title>
 
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/bootstrap.media.css">
@@ -13,7 +13,7 @@
 
 <div class="container">
   <h1 class="page-header">
-    Agile JavaScript
+    AngularJS
     <small>a codecentric AG workshop</small>
   </h1>
   <p class="well">
@@ -43,14 +43,14 @@ Available tasks
         travis  Alias for "jshint", "simplemocha", "karma:unit", "server",     
                 "karma:integration" tasks.
            dev  Alias for "server", "watch" tasks.</pre>
-    The configuration for all tasks lies in the <code>Gruntfile.js</code>. Custom tasks are loaded from the <code>tasks</code> directory.
+    The configuration for all tasks lies in the <code>Gruntfile.js</code>. Custom Grunt tasks are loaded from the <code>tasks</code> directory.
   </p>
   
   <p>
     Some tasks are in fact multitasks. To execute only a single substep of a multitask, use ":" as separator. At the moment only jshint and karma are multitasks. The subtasks are: jshint:server, jshint:servertest, jshint:gruntfile, jshint:client, jshint:karmaIntegration and jshint:karmaUnit for jshint and karma:unit and karma:integration for karma</p>
   </p>
   
-  <p>The most important grunt-tasks are <strong>travis</strong>
+  <p>The most important Grunt tasks are <strong>travis</strong>
   and <strong>dev</strong> (in fact, these two include all other available
   tasks), but it can be useful to know about the other ones, too.</p>
 
@@ -81,8 +81,6 @@ DEBUG:   program 'server/server.js'
 
 Running "watch" task
 Express server listening on port 3000
-Activated neo4j auto-indexing
-Added property type to neo4j auto-indexing.
 ...</pre>
     
   <h3>grunt simplemocha</h3>
@@ -92,9 +90,9 @@ Added property type to neo4j auto-indexing.
 Running "simplemocha:all" (simplemocha) task
 
   getMovie
-    ◦ should return an empty list when neo returns null: [2013-10-06 19:21:49.369] [DEBUG] routes/movies - Retrieving a list of all movies
+    ◦ should return an empty list when database returns null: [2013-10-06 19:21:49.369] [DEBUG] routes/movies - Retrieving a list of all movies
 [2013-10-06 19:21:49.370] [DEBUG] routes/movies - Successfully loaded 0 movies.
-    ✓ should return an empty list when neo returns null
+    ✓ should return an empty list when database returns null
 ...
 
   4 passing (21ms)</pre>
