@@ -66,20 +66,6 @@
       codecentric/movie-database-node</a>.
   </p>
 
-  <h2>Preparation</h2>
-  <ul>
-    <li>
-      You might need a GitHub account. If you do not already have an account,
-      creating an account is easy and free of charge. You can create an account
-      at the <a href="https://github.com/">GitHub homepage</a>. (TODO: Revise
-      this: If the VM has a clone of the repo, no GH account is needed.)
-    </li>
-   <li>
-      Follow the installation instructions below. This will set you up with a
-      complete development environment.
-    </li>
-  </ul>
-
   <h2>Installation of necessary software</h2>
   <p>
     We provide an Ubuntu-based virtual machine that can be run using
@@ -93,22 +79,17 @@
 
   <h3>Using the Virtual Machine</h3>
   <p>
-    (TODO: Memory Stick?)
-    Make sure that you have
-    <a href="https://www.virtualbox.org/">Oracle VirtualBox</a> installed.
-    VirtualBox versions 4.2.x and 4.3.x and should do fine. Once VirtualBox is
-    installed you can start VirtualBox and import the virtual machine using
-    <em>File -> Import Appliance</em>. Follow the wizard
-    till the end and start the virtual machine. You should now be good to go!
+    Install VirtualBox, either from the provided memory stick or by downloading
+    it from <a href="https://www.virtualbox.org/">virtualbox.org</a>. You can
+    also use your system's package manager to install it. VirtualBox versions
+    4.2.x and 4.3.x and should do fine.
   </p>
   <p>
-    (TODO: Memory Stick?)
-    (TODO: Update VM and link?)
-    The virtual machine is
-    <a href="https://public.centerdevice.de/70cf98fd-58c3-4f36-8174-5b449299dee7">
-      available through CenterDevice
-    </a>
-    (hit the download button in the upper-right corner).
+    Once VirtualBox is installed you can start VirtualBox and import the virtual
+    machine from the memory stick (<tt>agile-javascript-vm.ova</tt>): 
+    <em>File -> Import Appliance</em>. Follow the
+    wizard until the end and start the virtual machine. You should now be good to
+    go!
   </p>
 
   <div class="alert alert-info">
@@ -120,11 +101,8 @@
 
   <div class="alert alert-warning">
   <p>
-    Installing all required tools natively on your machine probably requires
-    a fair amount of time and <strong>is not recommended</strong> during the
-    workshop.  You can use this section as a starting point if you want to play
-    around with the workshop material later and do not want to keep the virtual
-    machine around.
+    Installing the required tools natively on your machine might require
+    some time but is an alternative to using the virtual machine.
   </p>
   <p>
     Providing detailed installation instructions for all the tools is out of
@@ -135,33 +113,21 @@
 
   <ul>
     <li>
-      <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">
-        Java version 6 or later
-      </a>
-      Required for Neo4J, preferably Oracle JDK or Open JDK 7
-    </li>
-    <li>
       <a href="http://git-scm.com/">git</a> (the version control system)
     </li>
     <li>
-      <a href="http://nodejs.org/">Node.JS version 10 and NPM</a>
-      (node package manager). On OS X and Linux you
-      <strong>should</strong> use
-      <a href="https://github.com/creationix/nvm">NVM</a>
-      (Node Version Manager) which allows you to install global modules without
-      super user privileges. To install NVM you need to have git and curl
-      installed.
+      <a href="http://nodejs.org/">Node.JS</a>, version 10
+       (includes <em>npm</em>em, a package manager for Node.js). On OS X and
+       Linux you can use <a href="https://github.com/creationix/nvm">NVM</a>
+      (Node Version Manager) instead of installing Node.js directly. NVM allows
+      you to install global modules without super user privileges. To install
+      NVM you need to have git and curl installed.
     </li>
     <li>
-      Once NPM is installed, you will need to globally install the Grunt
+      Once Node.js and npm are installed, you will need to globally install the Grunt
       command line interface. You can do so by running
       <code>npm install -g grunt-cli</code>. Depending on your setup, you might
       need to prepend <code>sudo</code> to get the necessary privileges.
-    </li>
-    <li>
-      <a href="http://www.neo4j.org/">Neo4j</a> as this is the database that
-      we are using. Installation normally only requires an extraction of the
-      downloaded archive.
     </li>
     <li>
       Some code editor that offers basic support for HTML, CSS and JavaScript
