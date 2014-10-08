@@ -6,17 +6,17 @@ var sinon = require('sinon');
 var ResponseMock = require('./helper/response-mock');
 
 describe('getMovie', function () {
-    var dbStub;
+    var movieDbStub;
     var routes;
     var movies;
     var responseMock;
 
     beforeEach(function() {
         // Create stubs for the database API
-        dbStub = sinon.createStubInstance(dirty.Dirty);
+        movieDbStub = sinon.createStubInstance(dirty.Dirty);
 
         // load the routes and inject the d-stub
-        routes = require('../../server/routes')(dbStub);
+        routes = require('../../server/routes')(movieDbStub, null);
         movies = routes.movies;
 
         // the ResponseMock behaves like an express.js response object,
@@ -45,7 +45,7 @@ describe('getMovie', function () {
 
     it('should return movies', function (done) {
 
-        dbStub.forEach.yields('movie-xyz', {
+        movieDbStub.forEach.yields('movie-xyz', {
             title: 'Lord of the Rings',
             description: 'Description',
         });
