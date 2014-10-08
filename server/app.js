@@ -43,12 +43,23 @@ app.use(historyApiFallback);
 // all requests, that are not handled by static or historyApiFallback
 // are handled by the following routing mechanism.
 var routes = require('./routes')();
+
+// routes for the movie API
 app.get('/movies', routes.movies.getMovies);
 app.post('/movies', routes.movies.addMovie);
 app.get('/movies/:id', routes.movies.getMovie);
 app.put('/movies/:id', routes.movies.updateMovie);
 // delete is a reserved word
 app['delete']('/movies/:id', routes.movies.deleteMovie);
+
+// routes for the actor API
+app.get('/actors', routes.actors.getActors);
+app.post('/actors', routes.actors.addActor);
+app.get('/actors/:id', routes.actors.getActor);
+app.put('/actors/:id', routes.actors.updateActor);
+app['delete']('/actors/:id', routes.actors.deleteActor);
+
+
 
 // Serve static files
 app.use(serveStatic(serveDirectory));

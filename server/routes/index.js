@@ -5,7 +5,7 @@
 var path = require('path');
 var dirty = require('dirty');
 
-exports = module.exports = function (movieDb) {
+exports = module.exports = function (movieDb, actorDb) {
 
     var dataDir = path.resolve(__dirname, '../../data');
 
@@ -13,12 +13,16 @@ exports = module.exports = function (movieDb) {
     if (!movieDb) {
         movieDb = dirty(path.resolve(dataDir, 'movie.db'));
     }
+    if (!actorDb) {
+        actorDb = dirty(path.resolve(dataDir, 'actor.db'));
+    }
     // Otherwise the caller has provided a db instance that we will use (this
     // mechanism is used by tests to inject a db stub).
 
     var exports = {};
 
     exports.movies = require('./movies')(movieDb);
+    exports.actors = require('./actors')(actorDb);
 
     return exports;
 };

@@ -97,8 +97,10 @@ exports = module.exports = function (movieDb) {
      * Update a movie.
      */
     exports.updateMovie = function (req, res) {
+        var id = req.params.id;
+        logger.debug('Updating movie#%s', id);
         var movie = req.body;
-        logger.debug('Updating a movie');
+        movie.id = id;
         upsert(movie.id, movie, req, res);
     };
 
