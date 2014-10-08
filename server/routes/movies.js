@@ -1,13 +1,17 @@
 /*jshint maxstatements:50 */
 
 'use strict';
+var util = require('util');
 var uuid = require('node-uuid');
 var logger = require('log4js').getLogger('routes/movies');
 
-exports = module.exports = function (movieDb) {
+exports = module.exports = function (movieDb, actorDb) {
 
     if (!movieDb) {
-        throw new Error('No database configured');
+        throw new Error('No movie database configured');
+    }
+    if (!actorDb) {
+        throw new Error('No actor database configured');
     }
 
     var exports = {};
@@ -24,9 +28,10 @@ exports = module.exports = function (movieDb) {
     exports.getMovies = function (req, res) {
         logger.debug('Retrieving a list of all movies');
         var movies = [];
-        movieDb.forEach(function(key, value) {
-            if (typeof value !== 'undefined' && value !== null) {
-                movies.push(value);
+        movieDb.forEach(function(key, movie) {
+            if (typeof movie !== 'undefined' && movie !== null) {
+                addActors(movie);
+                movies.push(movie);
             }
         });
         logger.debug('Successfully loaded %d movies.', movies.length);
@@ -47,9 +52,29 @@ exports = module.exports = function (movieDb) {
             logger.debug('Movie#%s could not be found.', id);
             return res.status(404).send();
         }
+        addActors(movie);
+
         logger.debug('Found movie#%s with title: %s', id, movie.title);
         return res.send(movie);
     };
+
+    /* this is horribly inefficient - but just good enough for a workshop app */
+    function addActors(movie) {
+        movie.actors = [];
+        actorDb.forEach(function(key, actor) {
+            if (typeof actor !== 'undefined' &&
+                actor !== null &&
+                actor.movies &&
+                util.isArray(actor.movies)) {
+                for (var i = 0; i < actor.movies.length; i++) {
+                    var movieId = actor.movies[i];
+                    if (movieId === movie.id) {
+                        movie.actors.push(actor);
+                    }
+                }
+            }
+        });
+    }
 
     /*
      * Delete a movie.
@@ -68,7 +93,12 @@ exports = module.exports = function (movieDb) {
         });
     };
 
+    // TODO Return 204 or 200 for PUT, not 201
     function upsert(id, movie, req, res) {
+         // In case the client sends actors related to that movie, we ignore
+        // it. The actor db is the single source of truth for actor-movie
+        // relations.
+        delete movie.actors;
         movieDb.set(movie.id, movie, function(err) {
             if (err) {
                 logger.error('Failed to add movie: %s', err);

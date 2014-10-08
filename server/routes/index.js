@@ -21,8 +21,8 @@ exports = module.exports = function (movieDb, actorDb) {
 
     var exports = {};
 
-    exports.movies = require('./movies')(movieDb);
-    exports.actors = require('./actors')(actorDb);
+    exports.movies = require('./movies')(movieDb, actorDb);
+    exports.actors = require('./actors')(movieDb, actorDb);
 
     return exports;
 };

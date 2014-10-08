@@ -7,7 +7,7 @@
 // To verify the internal state at the end of a test, the 'verifySend' method can be used.
 //
 // Example:
-// 
+//
 // it('should return a 404 response', function (done) {
 //     responseMock = new ResponseMock();
 //     controller.get('/does/not/exist', responseMock);
@@ -44,7 +44,7 @@ ResponseMock.prototype.set = function(key, val) {
 // Alias to the set-method
 ResponseMock.prototype.header = ResponseMock.prototype.set;
 
-// Set the location header to the given url and the status to the given 
+// Set the location header to the given url and the status to the given
 // status (or 304 if no explicit status is yet given) and call send() afterwards.
 ResponseMock.prototype.redirect = function() {
     if (arguments.length === 2) {

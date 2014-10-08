@@ -7,6 +7,7 @@ var ResponseMock = require('./helper/response-mock');
 
 describe('getMovie', function () {
     var movieDbStub;
+    var actorDbStub;
     var routes;
     var movies;
     var responseMock;
@@ -14,9 +15,10 @@ describe('getMovie', function () {
     beforeEach(function() {
         // Create stubs for the database API
         movieDbStub = sinon.createStubInstance(dirty.Dirty);
+        actorDbStub = sinon.createStubInstance(dirty.Dirty);
 
         // load the routes and inject the d-stub
-        routes = require('../../server/routes')(movieDbStub, null);
+        routes = require('../../server/routes')(movieDbStub, actorDbStub);
         movies = routes.movies;
 
         // the ResponseMock behaves like an express.js response object,
@@ -61,4 +63,31 @@ describe('getMovie', function () {
 
         movies.getMovies({}, responseMock);
     });
+
+    it('should return movies with actors', function (done) {
+
+        movieDbStub.forEach.yields('movie-abc', {
+            id: 'movie-abc',
+            title: 'Movie ABC',
+        });
+        actorDbStub.forEach.yields('actor-xyz', {
+            name: 'Marilyn Monroe',
+            movies: ['movie-def', 'movie-abc'],
+        });
+
+        responseMock.verify(function(responseData) {
+            expect(responseData.status).to.equal(200);
+            expect(responseData.body).to.be.instanceOf(Array);
+            expect(responseData.body).to.have.length(1);
+            var movie = responseData.body[0];
+            expect(movie).to.have.property('title')
+                .that.equals('Movie ABC');
+            expect(movie.actors).to.be.an('array').of.length(1);
+            expect(movie.actors[0].name).to.equal('Marilyn Monroe');
+            done();
+        });
+
+        movies.getMovies({}, responseMock);
+    });
+
 });

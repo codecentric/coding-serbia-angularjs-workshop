@@ -1,13 +1,17 @@
 /*jshint maxstatements:50 */
 
 'use strict';
+var util = require('util');
 var uuid = require('node-uuid');
 var logger = require('log4js').getLogger('routes/actors');
 
-exports = module.exports = function (actorDb) {
+exports = module.exports = function (movieDb, actorDb) {
 
+    if (!movieDb) {
+        throw new Error('No movie database configured');
+    }
     if (!actorDb) {
-        throw new Error('No database configured');
+        throw new Error('No actor database configured');
     }
 
     var exports = {};
@@ -24,9 +28,10 @@ exports = module.exports = function (actorDb) {
     exports.getActors = function (req, res) {
         logger.debug('Retrieving a list of all actors');
         var actors = [];
-        actorDb.forEach(function(key, value) {
-            if (typeof value !== 'undefined' && value !== null) {
-                actors.push(value);
+        actorDb.forEach(function(key, actor) {
+            if (typeof actor !== 'undefined' && actor !== null) {
+                actors.push(actor);
+                addMovies(actor);
             }
         });
         logger.debug('Successfully loaded %d actors.', actors.length);
@@ -47,9 +52,22 @@ exports = module.exports = function (actorDb) {
             logger.debug('Actor#%s could not be found.', id);
             return res.status(404).send();
         }
+        addMovies(actor);
+
         logger.debug('Found actor#%s with title: %s', id, actor.title);
         return res.send(actor);
     };
+
+    function addMovies(actor) {
+        if (actor.movies && util.isArray(actor.movies)) {
+            for (var i = 0; i < actor.movies.length; i++) {
+                var movie = movieDb.get(actor.movies[i]);
+                if (movie) {
+                    actor.movies[i] = movie;
+                }
+            }
+        }
+    }
 
     /*
      * Delete an actor.
@@ -68,6 +86,7 @@ exports = module.exports = function (actorDb) {
         });
     };
 
+    // TODO Return 204 or 200 for PUT, not 201
     function upsert(id, actor, req, res) {
         actorDb.set(actor.id, actor, function(err) {
             if (err) {
