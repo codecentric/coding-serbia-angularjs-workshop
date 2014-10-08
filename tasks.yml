@@ -33,11 +33,11 @@
      movie overview page.
    hints:
      The AngularJS <em>orderBy</em> filter can reverse the sorting order.
-     
+
  - description:
      As a user I want active tab in the top-navigation to be highlighted.
    acceptanceCriteria:
-     Currently, the "Home" tab is always highlighted. When I click on the "Movies" tab, 
+     Currently, the "Home" tab is always highlighted. When I click on the "Movies" tab,
      I want this tab to be highlighted instead.
    hints:
      We have no idea, how this can be accomplished. We are curious, what you come up with...
@@ -49,7 +49,7 @@
    hints:
      Take a look at the difference between the links to the movie detail
      pages and the add movie button.
-     
+
  - description:
      As a user I want to be able to define movies' release years.
    acceptanceCriteria:
@@ -58,28 +58,60 @@
      should be displayed on both the overview (list) page and the detail page.
      When the release year is empty, a placeholder text (like "unknown") should be displayed.
    hints:
-     There is no explicit definition of the data-model. To extend the data-model by adding 
+     There is no explicit definition of the data-model. To extend the data-model by adding
      a new attribute, you simply have to pass the additional attribute to the server. The
      server will persist any attributes, it receives. Moreover, any attributes, that are 
      stored in the database will automatically be part of the server-responses for GET requests.
-     
+
  - description:
      As a user I want to be able to sort movies either by
      movie title or release year.
    acceptanceCriteria:
      See task 2 and 3 for details.
-     
+
+ - description:
+    As a user I want to be able to tell my friends about movies through a
+    Twitter integration.
+   hints:
+    Twitter provides
+    <a href="https://twitter.com/about/resources/buttons">
+     a few buttons
+    </a>
+    that are simple to integrate.
+
+ - description:
+    As a user I want to apply rich formatting options to
+    movie's descriptions.
+   hints:
+    <a href="http://textangular.com/">textAngular</a> and other
+    Angular-wrapped libraries may be helpful.
+   acceptanceCriteria:
+    The formatting options must not require knowledge about HTML.
+    Markdown and rich text editing are acceptable.
+
+ - description:
+     As a user I want to search for movies.
+   hints:
+     Is is acceptable to implement the search logic on the client side. Check
+     out Angular's
+     <a href="https://code.angularjs.org/1.2.26/docs/api/ng/filter/filter">
+       filter
+     </a> filter.
+   acceptanceCriteria:
+     There should only be one search field which searches in the
+     movies' titles and descriptions at the same time. Searching
+     should be case insensitive.
+
  - description:
      As a user I want my input to be validated when creating movies.
    acceptanceCriteria:
-     Movies need a title and a release year. The release-year must consist of 4 digits and 
+     Movies need a title and a release year. The release-year must consist of 4 digits and
      must be greater than 1900. <strong>The validation should be implemented on client-side</strong>. No
      communication with the server should happen for invalid data.
    hints:
      A very simple way to add validation on the client side is to use the
      <a href="http://docs.angularjs.org/api/ng.directive:ngChange">
        AngularJS ngChange directive</a>.
-       
 
  - description:
      As a user I want to be able to create actors. Each actor has a name
@@ -98,7 +130,6 @@
      A simple multi select box on the create actor form suffices. Connected
      actors should be shown on the movie detail page.
    hints:
-     
        
  - description:
      As a user I want to remove actors from a movie.
@@ -106,18 +137,14 @@
      
 
  - description:
-     As a user I want to search for movies and actors.
-
- - description:
-     As a user I want to be able to tell my friends about movies through a
-     Twitter integration.
+     As a user I want to search for actors.
    hints:
-     Twitter provides
-     <a href="https://twitter.com/about/resources/buttons">
-      a few buttons
-     </a>
-     that are simple to integrate.
-
- - description:
-     Go nuts! Do whatever comes to your mind and makes sense (or not) for 
-     a movie database app.
+     It is acceptable to implement the search logic on the client side.
+     Check out Angular's
+     <a href="https://code.angularjs.org/1.2.26/docs/api/ng/filter/filter">
+      filter
+      </a> filter.
+   acceptanceCriteria:
+     There should only be one search field which searches in all
+     the actors' properties at the same time. Searching
+     should be case insensitive.
