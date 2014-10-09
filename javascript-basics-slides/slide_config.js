@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Agile JavaScript Workshop',
+    title: 'AngularJS Workshop',
     subtitle: 'JavaScript, A Beginner\'s Guide',
     useBuilds: true,
     usePrettify: true,
@@ -22,11 +22,10 @@ var SLIDE_CONFIG = {
     www: 'http://bripkens.de',
     github: 'http://github.com/bripkens'
   }, {
-    name: 'Michael Lex',
+    name: 'Bastian Krol',
     company: 'IT Consultant<br>codecentric AG',
-    gplus: 'http://plus.google.com/113418074379656254601',
-    twitter: '@mlex',
-    github: 'http://github.com/mlex'
+    twitter: '@bastiankrol',
+    github: 'http://github.com/basti1302'
   }]
 };
 
