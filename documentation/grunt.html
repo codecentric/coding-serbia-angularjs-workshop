@@ -40,33 +40,35 @@ Available tasks
         server  Start the server for testing purposes. When used directly from
                 command-line, be sure to specify the '--wait' option. Otherwise
                 the process will exit immediately.
-        travis  Alias for "jshint", "simplemocha", "karma:unit", "server",     
-                "karma:integration" tasks.
+        test    Alias for "jshint", "simplemocha", "karma:unit", "server",
+                "protractor" tasks.
+        travis  Same as grunt test, but for running on Travis and Saucelabs
            dev  Alias for "server", "watch" tasks.</pre>
     The configuration for all tasks lies in the <code>Gruntfile.js</code>. Custom Grunt tasks are loaded from the <code>tasks</code> directory.
   </p>
-  
+
   <p>
     Some tasks are in fact multitasks. To execute only a single substep of a multitask, use ":" as separator. At the moment only jshint and karma are multitasks. The subtasks are: jshint:server, jshint:servertest, jshint:gruntfile, jshint:client, jshint:karmaIntegration and jshint:karmaUnit for jshint and karma:unit and karma:integration for karma</p>
   </p>
-  
-  <p>The most important Grunt tasks are <strong>travis</strong>
+
+  <p>The most important Grunt tasks are <strong>test</strong>
   and <strong>dev</strong> (in fact, these two include all other available
   tasks), but it can be useful to know about the other ones, too.</p>
 
-  <h3>grunt travis</h3>
-  <p>This task is executed during a build on Travis-CI. The following steps are performed:
+  <h3>grunt test</h3>
+  <p>This task executes all steps, including karma unit tests and acceptance
+     via protractor. The following steps are performed:
     <ul>
       <li><strong>grunt jshint</strong>: Static code analysis for all project files.</li>
       <li><strong>grunt simplemocha</strong>: Unit-tests for server-side code.</li>
       <li><strong>grunt karma:unit</strong>: Unit-tests for client-side code (using karma and phantomjs).</li>
       <li><strong>grunt server</strong>: Start a server with our application (needed for integration-tests). Note, that the server keeps running until grunt itself exits. In particular, the server can be used by the subsequent integration-test task.</li>
-      <li><strong>grunt karma:integration</strong>: Integration-tests using the server started by the precedent server-task.</li>
+      <li><strong>grunt protractor</strong>: Acceptance tests using the server started by the preceding server-task.</li>
     </ul>
   </p>
 
   <h3>grunt dev</h3>
-  <p>The <strong>dev</strong>-task is the most important task during local development. It has two functions:
+  <p>The <strong>dev</strong> task is the most important task during local development. It has two functions:
     <ul>
       <li>It starts a server listening on port 3000. The server is automatically restarted whenever a file changes.</li>
       <li>It uses the watch task to execute jshint, simplemocha and karma:integration whenever a file changes.</li>
@@ -82,7 +84,7 @@ DEBUG:   program 'server/server.js'
 Running "watch" task
 Express server listening on port 3000
 ...</pre>
-    
+
   <h3>grunt simplemocha</h3>
   <p>Executes the unit-tests for server-side code. The unit-tests are in the <code>test/server</code> directory. The simplemocha task uses a simple console-reporter. Unfortunately, the log-output of the server-code is also directly written to the console. This makes it difficult to detect test-errors, but it is the easiest way to make all necessary information available during Travis-CI runs (note, that only console-output is archived for Travis-CI runs).
   </p>
@@ -121,7 +123,7 @@ Running "jshint:karmaUnit" (jshint) task
 
 Done, without errors.</pre>
   </p>
-  
+
   <h3>grunt watch</h3>
   <p>
     Watch for file changes and execute the tasks jshing, simplemocha and karma:unit whenever a file is changed.
@@ -140,13 +142,13 @@ Running "karma:unit" (karma) task
 Done, without errors.
 Completed in 2.105s at Sun Oct 06 2013 19:47:50 GMT+0200 (CEST) - Waiting...</pre>
   </p>
-  
+
   <h3>grunt server --wait</h3>
   <p>
     The server task starts a NodeJS server running the movie-database application. If used directly from command-line (and not from within other tasks), be sure to add the <code>--wait</code> option. Otherwise grunt will exit and the server will be shutdown immediately.
   </p>
   <p>
-    The server-tasks is used for three purposes: First, the travis task include a call to the server task to start the application for the end-to-end tests. Second, the dev-task uses it to start the server for local development. And last, you can use it directly from command-line (with the --wait option), if you do not want the overhead of the dev task.
+    The server-tasks is used for three purposes: First, the test task include a call to the server task to start the application for the end-to-end tests. Second, the dev-task uses it to start the server for local development. And last, you can use it directly from command-line (with the --wait option), if you do not want the overhead of the dev task.
   </p>
   <pre>$ grunt server --wait
 Running "server" task
@@ -168,7 +170,7 @@ Express server listening on port 3000
       <li><strong>karma:integration [--debug]</strong>: The integration (or end-to-end-tests) are based on angular-scenario. Make sure, that you have your application running on port 3000 when executing this task!</li>
     </ul>
   </p>
-      
+
 </div>
 
 </body>

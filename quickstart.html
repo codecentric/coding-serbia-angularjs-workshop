@@ -45,15 +45,15 @@
         <pre>npm install -g grunt-cli</pre>
       </li>
       <li>
-        Test your movie-database application using the <code>travis</code> task. <strong>Be sure, that this step succeeds, before moving on!</strong>. If the build fails, re-check your setup (phantomjs installed? nodejs-version up-to-date?).
-        <pre>grunt travis</pre>
+        Test your movie-database application using the <code>test</code> task. <strong>Be sure, that this step succeeds, before moving on!</strong>. If the build fails, re-check your setup (phantomjs installed? nodejs-version up-to-date?).
+        <pre>grunt test</pre>
       </li>
       <li>
         Finally, you can start developing. The most useful Grunt task during development is <code>dev</code>. This task start a web-server in the background (on port 3000). The webserver is restarted automatically, whenever a file changes. Moreover, on each file-change, the jshint and unit-test tasks are executed. If you keep an eye on the console output, you will always know, when your code changes break existing tests.
         <pre>grunt dev</pre>
       </li>
       <li>Open your browser and navigate to <a href="http://localhost:3000/">http://localhost:3000/</a>.</li>
-      <li>Change some code, watch for the automatically triggered test-run and see the result instantly in your web-browser.</li> 
+      <li>Change some code, watch for the automatically triggered test-run and see the result instantly in your web-browser.</li>
     </ol>
   </p>
 </div>
