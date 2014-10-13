@@ -1,38 +1,13 @@
-# Movie Database - NodeJS version
+# Coding Serbia 2014 - AngularJS workshop repository
 
-[![Build Status](https://travis-ci.org/codecentric/movie-database-node.png)](https://travis-ci.org/codecentric/movie-database-node)
+This is the repository used in the AngularJS workshop at Coding Serbia 2014. Participants use it as a starting point and extend the existing AngularJS app in this repo with new features. See <http://codecentric.github.io/coding-serbia-angularjs-workshop/> for more info.
 
-Another version of the legendary movie database. This time with NodeJS. The app
-is being deployed to Heroku after every push. Feel free to check it out:
-[http://movie-database-node.herokuapp.com/](http://movie-database-node.herokuapp.com/)!
-
-*More documentation is available through [http://codecentric.github.io/movie-database-node](http://codecentric.github.io/movie-database-node)*.
-
-## Travis-CI and Heroku
-
-This project uses [Travis-CI](https://www.travis-ci.org/) for
-continuous integration. After every successfull build, the application
-is deployed automatically to [Heroku](https://www.heroku.com/).
-
-If you fork the project, you probably want to set up a CI/CD-pipeline
-yourself. For Travis-CI, follow these steps (or take a look at the
-guide [Travis-CI Getting started guide](http://about.travis-ci.org/docs/user/getting-started/)). If
-you are interested in the travis-configuration, take a look at the
-documented [.travis.yml](.travis.yml).
-
-1. Fork the project on GitHub.
-2. Create a Travis-CI account (you can login with your GitHub account).
-3. Activate the Travis service hook for your fork of the project (on your profile page).
-4. Change the build-status icon in this README.md file to the new travis project (https://travis-ci.org/YOUR_GITHUB_NAME/movie-database-node).
-
-Deployment on Heroku is also easy. Just follow the [Getting started with Heroku and NodeJS guide](https://devcenter.heroku.com/articles/nodejs).
-If you want your application to be deployed continuously, whenever a Travis-CI job succeeds, you have to encrypt your Heroku API Key and save it in the `.travis.yml` according to the [Travis CI documentation](http://about.travis-ci.org/docs/user/deployment/heroku/):
+This is a fork of <https://github.com/codecentric/movie-database-node/>.
 
 ## System requirements
 
 *Make sure that you have [node.js with NPM](http://nodejs.org/) installed on
-your machine. You also need a Neo4j instance listening
-on* `http://127.0.0.1:7474`.
+your machine.
 
 This project uses a standard node.js module descriptor (`package.json`) and
 [Grunt](http://gruntjs.com/) as a tool for test execution and static source
@@ -51,11 +26,19 @@ The most useful Grunt tasks currently is `test` for test execution and
 Grunt:
 
 ```
+grunt test
+```
+
+or
+
+```
 grunt dev
 ```
 
+respectively.
+
 The development mode will automatically spin up a server which will be restarted
-upon file changes. Furthermore all tests will be executed whenever you change
+upon file changes. Furthermore all unit tests will be executed whenever you change
 a file.
 
 ## Automatically restarting the express server on file changes
@@ -74,11 +57,6 @@ npm install -g supervisor
 # Then run the server
 supervisor src/server.js
 ```
-
-## Other Movie Database Implementations
-
- - [with Spring MVC](https://github.com/tobiasflohre/movie-database)
- - [with AngularJS and requireJS](https://github.com/bripkens/movie-database-spa)
 
 ## License (MIT)
 
